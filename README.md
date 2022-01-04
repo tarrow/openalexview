@@ -1,5 +1,7 @@
 # openalexview
 
+Written using vue-cli, vue-router and the openalex api in 1 hour.
+
 ## Project setup
 ```
 npm install
