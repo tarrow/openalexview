@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  node:
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile-node
+    image: wmde/wikibase-termbox-node
+    volumes:
+      - '~/.npm:/.npm'
+      - './:/app'
+    working_dir: /app
+    environment:
+      - NODE_ENV
+      - NODE_DEBUG
+      - DEBUG
+
+  csr:
+    extends:
+      service: node
+    ports:
+      - '8080:8080'
+    command: 'npm run-script serve'
